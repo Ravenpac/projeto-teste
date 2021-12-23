@@ -31,6 +31,10 @@ body {
   background-color: #e66960;
   width: 40%;
   height: 100%; /* o motivo do position relative */
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+
+  left: 0%;
 }
 .title {
   font-size: 28px;
@@ -65,10 +69,12 @@ body {
   width: 150px;
   align-self: center;
   border-width: 0;
+  margin-top: 5px;
 }
 .btn-primary {
   background-color: transparent;
   border: 1px solid #fff;
+  transition: background-color 0.5s;
 }
 .btn-primary:hover {
   background-color: #fff;
@@ -77,6 +83,7 @@ body {
 .btn-second {
   background-color: #e66960;
   border: 1px solid #fff;
+  transition: background-color 0.5s;
 }
 .btn-second:hover {
   background-color: #fff;
@@ -86,16 +93,30 @@ body {
 .first-content {
   display: flex;
 }
+.first-content .second-column {
+  z-index: 12;
+}
 .first-column {
   text-align: center;
-  flex: 1 0 auto; /* flex grow (tamanho ocupado proporcionalmente), flex shrink (diminuir) e flex basis (começar num determinado tamanho) */
+  width: 40%;
   z-index: 2;
 }
 .second-column {
-  flex: 2 0 auto; /* flex grow (tamanho ocupado proporcionalmente), flex shrink (diminuir) e flex basis (começar num determinado tamanho) */
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.social-media {
+  margin: 1rem 0;
+}
+.link-social-media .item-social-media {
+  transition: background-color 0.5s;
+}
+.link-social-media:hover .item-social-media {
+  background-color: #e66960;
+  color: #fff;
+  border-color: #e66960;
 }
 .list-social-media {
   display: flex;
@@ -108,9 +129,10 @@ body {
   height: 35px;
   line-height: 35px;
   text-align: center;
-}
-.item-social-media a {
   color: #95a5a6;
+}
+.link-social-media:not(:first-child) {
+  margin-left: 10px;
 }
 .form {
   display: flex;
@@ -119,12 +141,132 @@ body {
 }
 
 .form input {
+  width: 100%;
   height: 45px;
   border: none;
   background-color: #ecf0f1;
+}
+.label-input {
+  background-color: #ecf0f1;
+  display: flex;
+  align-items: center;
   margin: 8px;
 }
+.icon-modify {
+  color: #7f8c8d;
+  padding: 0 8px;
+}
+
+/* second content */
+
 .second-content {
   position: absolute; /* sobreposição */
-  display: none;
+  display: flex;
+}
+
+.second-content .first-column {
+  order: 2;
+  z-index: -1;
+}
+.second-content .second-column {
+  order: 1;
+  z-index: -1;
+}
+.password {
+  color: #34495e;
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: center;
+}
+.password::first-letter {
+  text-transform: capitalize;
+}
+.sign-in-js .first-content .first-column,
+.sign-in-js .first-content .second-column {
+  z-index: -1;
+}
+.sign-in-js .second-content .first-column {
+  z-index: 14;
+}
+.sign-in-js .second-content .second-column {
+  z-index: 12;
+}
+.sign-in-js .content::before {
+  left: 60%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  animation: slidein 1s;
+  z-index: 13;
+}
+.sign-up-js .second-content .first-column,
+.sign-up-js .second-content .second-column {
+  z-index: -1;
+}
+.sign-up-js .first-content .first-column {
+  z-index: 14;
+}
+.sign-up-js .first-content .second-column {
+  z-index: 12;
+}
+
+.sign-up-js .content::before {
+  animation: slideout 1s;
+  z-index: 13;
+}
+
+/* Animação CSS */
+@keyframes slidein {
+  from {
+    left: 0;
+    width: 40%;
+  }
+
+  25% {
+    left: 15%;
+    width: 50%;
+  }
+
+  50% {
+    left: 30%;
+    width: 60%;
+  }
+
+  75% {
+    left: 45%;
+    width: 50%;
+  }
+
+  to {
+    left: 60%;
+    width: 40%;
+  }
+}
+
+@keyframes slideout {
+  from {
+    left: 60%;
+    width: 40%;
+  }
+
+  25% {
+    left: 45%;
+    width: 50%;
+  }
+
+  50% {
+    left: 30%;
+    width: 60%;
+  }
+
+  75% {
+    left: 15%;
+    width: 50%;
+  }
+
+  to {
+    left: 0%;
+    width: 40%;
+  }
 }
