@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=fallback');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*resetar o css para ficar melhor encaixado*/
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.container {
+  display: flex; /* colocar inline*/
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* altura relacionada ao viewport, poderia ser feita também adicionar 100% height ao body e ao html */
+  background-color: gray;
+}
+.content {
+  border-radius: 15px; /* borda arredondada */
+  background-color: #fff;
+  width: 960px;
+  height: 50%;
+  justify-content: space-between; /*espaço entre a primeira coluna e a segunda coluna*/
+  align-items: center;
+  position: relative; /* para o pseudo-element não extrapolar a tela */
+}
+.content::before {
+  /* uma das formas de colocar a cor */
+  content: '';
+  position: absolute;
+  background-color: #e66960;
+  width: 40%;
+  height: 100%; /* o motivo do position relative */
+}
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.title-primary {
+  color: #fff;
+}
+.title-second {
+  color: #e66960;
+}
+.description {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 30px;
+}
+.description-primary {
+  color: #fff;
+}
+.description-second {
+  color: #7f8c8d;
+}
+.btn {
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 10px 50px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  align-self: center;
+  border-width: 0;
+}
+.btn-primary {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+.btn-primary:hover {
+  background-color: #fff;
+  color: #e66960;
+}
+.btn-second {
+  background-color: #e66960;
+  border: 1px solid #fff;
+}
+.btn-second:hover {
+  background-color: #fff;
+  color: #e66960;
+  border: 1px solid #e66960;
+}
+.first-content {
+  display: flex;
+}
+.first-column {
+  text-align: center;
+  flex: 1 0 auto; /* flex grow (tamanho ocupado proporcionalmente), flex shrink (diminuir) e flex basis (começar num determinado tamanho) */
+  z-index: 2;
+}
+.second-column {
+  flex: 2 0 auto; /* flex grow (tamanho ocupado proporcionalmente), flex shrink (diminuir) e flex basis (começar num determinado tamanho) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list-social-media {
+  display: flex;
+  list-style-type: none;
+}
+.item-social-media {
+  border: 1px solid #bdc3c7;
+  border-radius: 50%; /* abaixo daqui, é tudo pro círculo perfeito */
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+.item-social-media a {
+  color: #95a5a6;
+}
+.form {
+  display: flex;
+  flex-direction: column; /* deixar o formulário em coluna */
+  width: 55%;
+}
+
+.form input {
+  height: 45px;
+  border: none;
+  background-color: #ecf0f1;
+  margin: 8px;
+}
+.second-content {
+  position: absolute; /* sobreposição */
+  display: none;
+}
